@@ -12,6 +12,13 @@ export class App extends Component {
 
   handleChange = e => {
     this.setState({ name: e.target.value });
+    console.log(this.state);
+  };
+
+  handleSubmit = e => {
+    const { contacts, name } = this.state;
+    e.preventDefault();
+    this.setState({ contacts: [...contacts, ...[name]] });
   };
 
   render() {
@@ -19,7 +26,11 @@ export class App extends Component {
     return (
       <>
         <Section title="Phonebook">
-          <Form value={name} onChange={this.handleChange} />
+          <Form
+            value={name}
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+          />
         </Section>
         <Section title="Contacts"></Section>
       </>

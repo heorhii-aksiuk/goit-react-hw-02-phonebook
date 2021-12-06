@@ -5,9 +5,9 @@ class Form extends Component {
   static propTypes = {};
 
   render() {
-    const { value, onChange } = this.props;
+    const { value, onChange, onSubmit } = this.props;
     return (
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           value={value}
           onChange={onChange}
