@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class Section extends Component {
   static propTypes = {
     title: PropTypes.string,
+    contact: PropTypes.element,
   };
 
   render() {
