@@ -9,26 +9,34 @@ export class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
   handleChange = e => {
-    this.setState({ name: e.target.value });
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
-    const { contacts, name } = this.state;
+    const { contacts, name, number } = this.state;
     const id = nanoid();
     e.preventDefault();
-    this.setState({ contacts: [...contacts, { name, id }] });
+    this.setState({ contacts: [...contacts, { id, name, number }] });
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
-    const { name, contacts } = this.state;
+    const { name, number, contacts } = this.state;
     return (
       <>
         <Section title="Phonebook">
           <Form
-            value={name}
+            name={name}
+            number={number}
             onChange={this.handleChange}
             onSubmit={this.handleSubmit}
           />

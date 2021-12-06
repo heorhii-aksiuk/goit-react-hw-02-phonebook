@@ -7,6 +7,7 @@ class Contacts extends Component {
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
       }),
     ),
   };
@@ -18,7 +19,7 @@ class Contacts extends Component {
         {contacts.map(contact => {
           return (
             <li key={contact.id} name={contact.name}>
-              {contact.name}
+              {contact.name} : {contact.number}
             </li>
           );
         })}
