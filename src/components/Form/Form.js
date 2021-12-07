@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 class Form extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    onSubmitContact: PropTypes.func.isRequired,
+  };
+
+  state = { name: '', number: '' };
+
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { name, number } = this.state;
+    const id = nanoid();
+    const newContact = { id, name, number };
+    this.props.onSubmitContact(newContact);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
-    const { name, number, onChange, onSubmit } = this.props;
+    const { name, number } = this.state;
     return (
-      <form onSubmit={onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input
           value={name}
-          onChange={onChange}
+          onChange={this.handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -24,7 +43,7 @@ class Form extends Component {
         />
         <input
           value={number}
-          onChange={onChange}
+          onChange={this.handleChange}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
