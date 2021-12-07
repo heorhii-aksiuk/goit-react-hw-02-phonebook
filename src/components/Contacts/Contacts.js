@@ -13,13 +13,18 @@ class Contacts extends Component {
   };
 
   render() {
-    const { contacts } = this.props;
+    const { contacts, onRemoveClick } = this.props;
     return (
       <ul>
         {contacts.map(contact => {
           return (
             <li key={contact.id} name={contact.name}>
-              {contact.name} : {contact.number}
+              <p>
+                {contact.name} : {contact.number}
+              </p>
+              <button id={contact.id} onClick={onRemoveClick} type="button">
+                Remove
+              </button>
             </li>
           );
         })}
