@@ -11,7 +11,10 @@ class Filter extends Component {
     const { value, onChange } = this.props;
     return (
       <>
-        <input value={value} onChange={onChange}></input>
+        <label>
+          Find contacts by name
+          <input value={value} onChange={onChange}></input>
+        </label>
       </>
     );
   }
