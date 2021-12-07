@@ -17,7 +17,12 @@ class App extends Component {
 
   getNewContact = newContact => {
     const { contacts } = this.state;
-    this.setState({ contacts: [newContact, ...contacts] });
+
+    if (contacts.find(contact => contact.name === newContact.name)) {
+      alert(`${newContact.name} is already in contacts.`);
+    } else {
+      this.setState({ contacts: [newContact, ...contacts] });
+    }
   };
 
   handleFilter = e => {
