@@ -1,14 +1,18 @@
 :root {
   --main-font: 'Roboto', sans-serif;
   --main-text-color: #212121;
-  --secondary-text-color: #808080;
+  --second-text-color: #777777;
   --body-background-color: #d9dae0;
   --main-background-color: #ffffff;
-  --secondary-background-color: #eeeeee;
-  --accent-color: #36b6d6;
-  --boarder-color: #e0e0e0;
-  --online-color: #00e239;
-  --offline-color: #ff0000;
+  --second-background-color: #ebebeb;
+  --accent-color: #83b5ff83;
+  --button-color: #dbdbdb;
+  --button-hover: #a5fcab;
+  --button-active: #a5fcabc9;
+  --delete-button-color: #dbdbdb;
+  --delete-button-hover: #fca5a5;
+  --delete-button-active: #fca5a5c9;
+  --input-boarder-color: rgba(27, 31, 35, 0.35);
 }
 
 h1,

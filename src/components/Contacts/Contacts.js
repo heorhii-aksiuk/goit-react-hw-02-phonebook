@@ -20,11 +20,16 @@ class Contacts extends Component {
         {contacts.map(({ id, name, number }) => {
           return (
             <li className={s.item} key={id} name={name}>
-              <p>
-                {name} : {number}
+              <p className={s.paragraph}>
+                <span>{name}</span>
+                <span>{number}</span>
               </p>
-              <button onClick={() => onRemoveClick(id)} type="button">
-                Remove
+              <button
+                className={s.button}
+                onClick={() => onRemoveClick(id)}
+                type="button"
+              >
+                Delete
               </button>
             </li>
           );
