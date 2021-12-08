@@ -17,13 +17,13 @@ class Contacts extends Component {
     const { contacts, onRemoveClick } = this.props;
     return (
       <ul>
-        {contacts.map(contact => {
+        {contacts.map(({ id, name, number }) => {
           return (
-            <li className={s.item} key={contact.id} name={contact.name}>
+            <li className={s.item} key={id} name={name}>
               <p>
-                {contact.name} : {contact.number}
+                {name} : {number}
               </p>
-              <button id={contact.id} onClick={onRemoveClick} type="button">
+              <button onClick={() => onRemoveClick(id)} type="button">
                 Remove
               </button>
             </li>

@@ -25,10 +25,10 @@ class App extends Component {
     }
   };
 
-  removeContact = e => {
+  removeContact = id => {
     const { contacts } = this.state;
     this.setState({
-      contacts: [...contacts].filter(contact => contact.id !== e.target.id),
+      contacts: [...contacts].filter(contact => contact.id !== id),
     });
   };
 
